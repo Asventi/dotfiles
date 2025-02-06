@@ -72,15 +72,6 @@ HIST_STAMPS="dd.mm.yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 
 # Check if autojump is installed
-if [ ! $(command -v autojump 2>/dev/null) ]; then
-	echo "Autojump is not installed, installing it..."
-	mkdir -p $HOME/bin
-	git clone https://github.com/wting/autojump.git
-	cd autojump
-	./install.py
-	cd ..
-	rm -rf autojump
-fi
 
 plugins=(git aliases alias-finder autojump colored-man-pages colorize copypath copyfile cp dircycle dirpersist extract safe-paste themes rand-quote emoji-clock)
 
@@ -90,6 +81,16 @@ zstyle ':omz:plugins:alias-finder' exact yes
 zstyle ':omz:plugins:alias-finder' cheaper yes
 
 source $ZSH/oh-my-zsh.sh
+
+if [ ! $(command -v autojump 2>/dev/null) ]; then
+	echo "Autojump is not installed, installing it..."
+	mkdir -p $HOME/bin
+	git clone https://github.com/wting/autojump.git
+	cd autojump
+	./install.py
+	cd ..
+	rm -rf autojump
+fi
 
 # User configuration
 
