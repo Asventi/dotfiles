@@ -70,6 +70,16 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+# Check if autojump is installed
+if [ ! $(command -v autojump 2>/dev/null) ]; then
+	echo "Autojump is not installed, installing it..."
+	mkdir -p $HOME/bin
+	git clone git://github.com/wting/autojump.git
+	./autojump/install.py
+	rm -rf autojump
+fi
+
 plugins=(git aliases alias-finder autojump colored-man-pages colorize copypath copyfile cp dircycle dirpersist extract safe-paste themes rand-quote emoji-clock)
 
 zstyle ':omz:plugins:alias-finder' autoload yes
