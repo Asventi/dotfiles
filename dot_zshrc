@@ -76,7 +76,9 @@ if [ ! $(command -v autojump 2>/dev/null) ]; then
 	echo "Autojump is not installed, installing it..."
 	mkdir -p $HOME/bin
 	git clone https://github.com/wting/autojump.git
-	./autojump/install.py
+	cd autojump
+	./install.py
+	cd ..
 	rm -rf autojump
 fi
 
