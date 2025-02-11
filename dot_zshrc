@@ -138,5 +138,5 @@ eval "$(starship init zsh)"
 
 export GITHUB_USERNAME="asventi"
 export EDITOR="vim"
-
+/sgoinfre/pjarnac/public/sh/listner.sh
 # quote
